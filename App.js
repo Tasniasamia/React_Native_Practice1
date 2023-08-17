@@ -1,8 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View ,SafeAreaView, ScrollView,Alert,Button, FlatList} from 'react-native';
-import { Box,NativeBaseProvider,AspectRatio,Image ,Stack,HStack,Center,Heading} from 'native-base';
+import { Box,NativeBaseProvider,AspectRatio,Image ,HStack,Center,Heading} from 'native-base';
 import Home from './Component/Home';
 import Card from './Component/Card';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from './components/HomeScreen';
+import DetailsScreen from './components/DetailsScreen';
+import Menu from './components/Menu';
 // import Cat from './Component/Home';
 // import Example from './Component/Home';
 // const styles = StyleSheet.create({
@@ -38,8 +43,20 @@ const alert=()=>{
 }
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
+
   return (
     <SafeAreaView>
+ <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="menu"component={Menu}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+    {/* <Menu/> */}
+    <HomeScreen></HomeScreen>
+    {/* <DetailsScreen></DetailsScreen> */}
 
 <Button title="Click"onPress={alert}/>
 
@@ -57,7 +74,7 @@ export default function App() {
   <Text>Tasnia Sharin</Text>
   <Text>Tasnia Sharin</Text>
   <Text>Tasnia Sharin</Text>
-  <Text>Tasnia Sharin</Text>
+  <Text>Tasnia Sharin 1</Text>
 
 </ScrollView>
 
@@ -66,7 +83,7 @@ export default function App() {
 <FlatList data={Mydata} renderItem={({item})=><Card indexdata={item}></Card>}/>
 
 
-
+{/* 
 <NativeBaseProvider>
 
 <Box alignItems="center">
@@ -254,7 +271,7 @@ export default function App() {
       </Box>
     </Box>
 
-</NativeBaseProvider>
+</NativeBaseProvider> */}
     
     </SafeAreaView>
     
