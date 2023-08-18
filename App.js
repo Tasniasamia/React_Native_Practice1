@@ -49,9 +49,9 @@ export default function App() {
     <SafeAreaView>
  <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home"  component={HomeScreen}  />
         <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="menu"component={Menu}/>
+        <Stack.Screen name="menu" component={Menu}/>
       </Stack.Navigator>
     </NavigationContainer>
     {/* <Menu/> */}
